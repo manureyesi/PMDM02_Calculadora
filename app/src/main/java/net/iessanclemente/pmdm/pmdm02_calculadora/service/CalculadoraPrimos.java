@@ -9,7 +9,7 @@ public class CalculadoraPrimos {
 
     public static Integer calcularPrimo (final Integer numero) {
 
-        Integer numeroPrimo = null;
+        Integer numeroPrimo;
 
         // Comprobamos si o número esta no Map calculado
         if (mapNumerosCalculados.containsKey(numero)) {

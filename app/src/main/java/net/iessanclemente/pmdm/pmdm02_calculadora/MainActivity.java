@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.numeroCalcular = findViewById(id.numeroCalcular);
 
-        this.resultado = findViewById(id.textView2);
+        this.resultado = findViewById(id.resultadoTexto);
 
         // Function para el click
         this.botonCalcular.setOnClickListener(this::onClick);
@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                 this.resultado.setText(String.format(
-                        getString(string.app_texto_respuesta_calcular), numeroCalcular.toString(), resultado.toString()));
+                        getString(string.app_texto_respuesta_calcular),
+                        numeroCalcular.toString(), resultado.toString()));
 
             }
         }

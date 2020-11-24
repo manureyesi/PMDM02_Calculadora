@@ -1,13 +1,24 @@
 package net.iessanclemente.pmdm.pmdm02_calculadora.service;
 
+import android.util.Log;
+
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * CalculadoraPrimos
+ */
 public class CalculadoraPrimos {
 
-    private static Map<Integer, Integer> mapNumerosCalculados = new HashMap<>();
+    private final static Map<Integer, Integer> mapNumerosCalculados = new HashMap<>();
 
+    /**
+     * Calcular Primo
+     * @param numero
+     * @return
+     */
     public static Integer calcularPrimo (final Integer numero) {
+        final String TAG = "calcularPrimo";
 
         Integer numeroPrimo;
 
@@ -16,7 +27,7 @@ public class CalculadoraPrimos {
             numeroPrimo = mapNumerosCalculados.get(numero);
         } else {
             // Como non esta no Mapa temolo que calcular
-            int contadorPrimos = 0;
+            Integer contadorPrimos = 0;
             numeroPrimo = 1;
 
             // Como se gardan todos os números primos buscamos o maior gardado
@@ -27,9 +38,9 @@ public class CalculadoraPrimos {
 
             while(contadorPrimos<numero) {
                 numeroPrimo++;
-                System.out.println(String.format("Comprobando si el Número %s es primo", numeroPrimo));
                 if (esPrimo(numeroPrimo)) {
                     contadorPrimos++;
+                    Log.i(TAG, String.format("El número %s es un número primo y esta en la posicion %s", numeroPrimo, contadorPrimos));
                     // Gardamos todos os numeros primos xa calculados
                     mapNumerosCalculados.put(contadorPrimos, numeroPrimo);
                 }

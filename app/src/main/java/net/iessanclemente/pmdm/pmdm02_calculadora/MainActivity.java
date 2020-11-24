@@ -2,6 +2,7 @@ package net.iessanclemente.pmdm.pmdm02_calculadora;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onClick(View view) {
+        final String TAG = "onClick:";
 
         String textoNumeroCalcular = this.numeroCalcular.getText().toString();
         if (!textoNumeroCalcular.isEmpty()) {
@@ -43,13 +45,13 @@ public class MainActivity extends AppCompatActivity {
             try {
                 numeroCalcular = Integer.valueOf(textoNumeroCalcular);
             } catch (NumberFormatException e) {
-
+                Log.e(TAG, String.format("Error ao parsear a cadea %s, non se corresponde cun formato de número", textoNumeroCalcular));
             }
 
             Integer resultado = null;
             if (numeroCalcular != null) {
+                Log.i(TAG, String.format("Se calcula la posicion %s de un número primo", numeroCalcular));
                 resultado = CalculadoraPrimos.calcularPrimo(numeroCalcular);
-
 
                 this.resultado.setText(String.format(
                         getString(string.app_texto_respuesta_calcular),
